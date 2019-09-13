@@ -1,0 +1,9 @@
+E:\OpenSource\TestDsl\bin\Debug\TestDsl.exe
+E:\OpenSource\TestDsl\bin\Debug\TestDsl.pdb
+E:\OpenSource\TestDsl\bin\Debug\Dsl.dll
+E:\OpenSource\TestDsl\bin\Debug\Dsl.pdb
+E:\OpenSource\TestDsl\obj\Debug\TestDsl.csprojAssemblyReference.cache
+E:\OpenSource\TestDsl\obj\Debug\TestDsl.csproj.CoreCompileInputs.cache
+E:\OpenSource\TestDsl\obj\Debug\TestDsl.csproj.CopyComplete
+E:\OpenSource\TestDsl\obj\Debug\TestDsl.exe
+E:\OpenSource\TestDsl\obj\Debug\TestDsl.pdb
