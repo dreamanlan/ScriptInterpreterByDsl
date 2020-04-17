@@ -53,16 +53,14 @@ namespace TestDsl
         public void Parse(Dsl.DslFile file)
         {
             foreach(var info in file.DslInfos) {
+                var func = info as Dsl.FunctionData;
+                if (null == func)
+                    continue;
                 var key = info.GetId();
-                if (key == "function" && info.GetFunctionNum()==1) {
-                    var funcData = info.First;
-                    var name = funcData.Call.GetParamId(0);
-                    var funcExp = new FuncExp();
-                    funcExp.Load(this, funcData);
-                    m_Funcs.Add(name, funcExp);
-                } else {
-                    //report error！
-                }
+                var name = func.Call.GetParamId(0);
+                var funcExp = new FuncExp();
+                funcExp.Load(this, func);
+                m_Funcs.Add(name, funcExp);
             }
         }
         public object Execute()
