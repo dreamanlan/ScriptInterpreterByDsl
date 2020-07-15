@@ -7,7 +7,6 @@ E:\OpenSource\TestDsl\obj\Debug\TestDsl.csproj.CoreCompileInputs.cache
 E:\OpenSource\TestDsl\obj\Debug\TestDsl.csproj.CopyComplete
 E:\OpenSource\TestDsl\obj\Debug\TestDsl.exe
 E:\OpenSource\TestDsl\obj\Debug\TestDsl.pdb
-E:\OpenSource\ScriptInterpreterByDsl\obj\Debug\TestDsl.csprojAssemblyReference.cache
 E:\OpenSource\ScriptInterpreterByDsl\obj\Debug\TestDsl.csproj.CoreCompileInputs.cache
 E:\OpenSource\ScriptInterpreterByDsl\obj\Debug\TestDsl.exe
 E:\OpenSource\ScriptInterpreterByDsl\obj\Debug\TestDsl.pdb

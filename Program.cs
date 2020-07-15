@@ -54,10 +54,10 @@ namespace TestDsl
         {
             foreach(var info in file.DslInfos) {
                 var func = info as Dsl.FunctionData;
-                if (null == func)
+                if (null == func || !func.IsHighOrder)
                     continue;
                 var key = info.GetId();
-                var name = func.Call.GetParamId(0);
+                var name = func.LowerOrderFunction.GetParamId(0);
                 var funcExp = new FuncExp();
                 funcExp.Load(this, func);
                 m_Funcs.Add(name, funcExp);
@@ -119,13 +119,13 @@ namespace TestDsl
 
         public void Load(Interpreter interpreter, ISyntaxComponent syntax)
         {
-            var cd = syntax as Dsl.CallData;
+            var cd = syntax as Dsl.FunctionData;
             if (null != cd && cd.GetParamNum() >= 1) {
                 m_Fmt = null;
                 m_Args.Clear();
                 for (int i = 0; i < cd.GetParamNum(); ++i) {
                     var p = cd.GetParam(i);
-                    var pcd = p as Dsl.CallData;
+                    var pcd = p as Dsl.FunctionData;
                     if (null != pcd) {
                         string name = pcd.GetId();
                         var proc = interpreter.GetFunc(name);
@@ -172,8 +172,8 @@ namespace TestDsl
         {
             var funcData = syntax as Dsl.FunctionData;
             if (null != funcData) {
-                foreach (var comp in funcData.Statements) {
-                    var cd = comp as Dsl.CallData;
+                foreach (var comp in funcData.Params) {
+                    var cd = comp as Dsl.FunctionData;
                     if (null != cd) {
                         var name = cd.GetId();
                         var exp = interpreter.GetFunc(name);
