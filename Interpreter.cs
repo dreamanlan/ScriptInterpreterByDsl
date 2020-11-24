@@ -213,6 +213,7 @@ namespace TestDsl
         public IExpression Load(Dsl.ISyntaxComponent comp)
         {
             Dsl.ValueData valueData = comp as Dsl.ValueData;
+            Dsl.FunctionData funcData = null;
             if (null != valueData) {
                 int idType = valueData.GetIdType();
                 if (idType == Dsl.ValueData.ID_TOKEN) {
@@ -235,7 +236,7 @@ namespace TestDsl
                 }
             }
             else {
-                Dsl.FunctionData funcData = comp as Dsl.FunctionData;
+                funcData = comp as Dsl.FunctionData;
                 if (null != funcData && funcData.HaveParam()) {
                     var callData = funcData;
                     string op = callData.GetId();
@@ -256,7 +257,7 @@ namespace TestDsl
             }
             IExpression ret = null;
             string expId = comp.GetId();
-            if (m_Funcs.ContainsKey(expId)) {
+            if (null != funcData && !funcData.IsHighOrder && m_Funcs.ContainsKey(expId)) {
                 ret = new FuncCallExp();
             }
             else {

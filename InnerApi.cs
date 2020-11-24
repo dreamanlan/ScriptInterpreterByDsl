@@ -182,7 +182,8 @@ namespace TestDsl
         }
         protected override bool Load(FunctionData funcData)
         {
-            if (funcData.HaveParam()) {
+            if (!funcData.IsHighOrder && funcData.HaveParam()) {
+                m_Func = funcData.GetId();
                 int num = funcData.GetParamNum();
                 for (int ix = 0; ix < num; ++ix) {
                     Dsl.ISyntaxComponent param = funcData.GetParam(ix);
